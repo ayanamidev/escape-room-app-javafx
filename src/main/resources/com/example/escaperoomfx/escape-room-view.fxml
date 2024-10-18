@@ -5,12 +5,19 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.escaperoomfx.EscapeRoomController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.escaperoomfx.EscapeRoomController">
+  <ImageView fx:id="background" layoutX="100" layoutY="100" fitWidth="700" fitHeight="400" />
+  <AnchorPane fx:id="logoPosition">
+      <!--
+      <ImageView fx:id="logo" layoutX="100" layoutY="100" fitWidth="160" fitHeight="160" />
+      -->
 
-  <!--<Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>-->
-</VBox>
+
+
+
+
+  </AnchorPane>
+</StackPane>
