@@ -19,7 +19,7 @@ public class EscapeRoomController {
     @FXML
     public void initialize() {
         /*
-        Image image = new Image(String.valueOf(getClass().getResource("images/logoo.jpg")));
+        Image image = new Image(String.valueOf(getClass().getResource("images/logo.jpg")));
         logo.setImage(image);
 
         Rectangle clip = new Rectangle(
@@ -27,13 +27,14 @@ public class EscapeRoomController {
         );
         clip.setArcWidth(30);
         clip.setArcHeight(30);
-        logo.setClip(clip);*/
+        logo.setClip(clip);
+        */
 
         Image backgroundImage = new Image(String.valueOf(getClass().getResource("images/background.jpg"))); // Cambia la ruta a tu imagen
         background.setImage(backgroundImage);
         /*
-        AnchorPane.setTopAnchor(logo, 10.0);
-        AnchorPane.setLeftAnchor(logo, 10.0);
+        AnchorPane.setTopAnchor(logo, 15.0);
+        AnchorPane.setLeftAnchor(logo, 15.0);
         */
 
     }

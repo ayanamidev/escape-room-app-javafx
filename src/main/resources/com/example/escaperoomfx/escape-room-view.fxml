@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.escaperoomfx.EscapeRoomController">
-  <ImageView fx:id="background" layoutX="100" layoutY="100" fitWidth="700" fitHeight="400" />
+  <ImageView fx:id="background" layoutX="100" layoutY="100" fitWidth="800" fitHeight="500" />
   <AnchorPane fx:id="logoPosition">
       <!--
-      <ImageView fx:id="logo" layoutX="100" layoutY="100" fitWidth="160" fitHeight="160" />
+      <ImageView fx:id="logo" layoutX="100" layoutY="100" fitWidth="110" fitHeight="110" />
       -->
 
 
