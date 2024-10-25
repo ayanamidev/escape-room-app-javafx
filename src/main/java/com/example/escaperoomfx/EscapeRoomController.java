@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -13,6 +14,8 @@ public class EscapeRoomController {
     public ImageView background;
     public Label numberOfAttempts;
     public Button tryButton;
+    public TextField textField;
+    public Label feedback;
 
     int numAttemps=6;
     int secretNumber;
@@ -24,7 +27,6 @@ public class EscapeRoomController {
         background.setImage(backgroundImage);
 
         numberOfAttempts.setText(String.valueOf(numAttemps));
-
         Random random = new Random();
         secretNumber = random.nextInt(100)+1;
 
@@ -37,6 +39,17 @@ public class EscapeRoomController {
         numberOfAttempts.setText(String.valueOf(numAttemps));
 
         if (numAttemps<=0){
+            tryButton.setDisable(true);
+        }
+
+        int inputNumber = Integer.parseInt(textField.getText());
+        textField.clear();
+        if (inputNumber>secretNumber){
+            feedback.setText("El número secreto es menor");
+        } else if (inputNumber<secretNumber) {
+            feedback.setText("El número secreto es mayor ");
+        } else {
+            feedback.setText("Has acertado en "+(6-numAttemps)+" intentos.");
             tryButton.setDisable(true);
         }
 
