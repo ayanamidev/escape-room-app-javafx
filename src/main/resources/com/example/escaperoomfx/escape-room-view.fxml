@@ -13,17 +13,17 @@
 <StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.escaperoomfx.EscapeRoomController">
     <ImageView fx:id="background"  fitWidth="800" fitHeight="500" />
     <!-- <ImageView fx:id="logo" layoutX="100" layoutY="100" fitWidth="110" fitHeight="110" />-->
-<VBox alignment="CENTER">
+<VBox alignment="CENTER" >
     <Label text="Descripción" textFill="WHITE"/>
     <HBox spacing="20"  alignment="CENTER">
         <Label text="Número entre 1 y 100" textFill="WHITE"/>
         <Label text="Tes un total de 6 intentos" textFill="WHITE"/>
-        <Label text="Quédanche N intentos" textFill="WHITE"/>
+        <Label fx:id="numberOfAttempts" textFill="WHITE"/>
     </HBox>
     <HBox alignment="CENTER" spacing="20">
         <Label text="Número:" textFill="WHITE"/>
         <TextField promptText="Hola"/>
-        <Button text="Probar" />
+        <Button fx:id="tryButton" text="Probar" onAction="#onTryButtonClick" />
     </HBox>
     <Label text="Feedback" textFill="WHITE"/>
 </VBox>
