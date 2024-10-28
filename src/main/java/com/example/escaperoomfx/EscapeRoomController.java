@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 
 import java.util.Random;
 
@@ -29,7 +30,6 @@ public class EscapeRoomController {
         Image backgroundImage = new Image(String.valueOf(getClass().getResource("images/background.jpg")));
         background.setImage(backgroundImage);
 
-        numberOfAttempts.setText(String.valueOf(numAttemps));
         Random random = new Random();
         secretNumber = random.nextInt(100)+1;
 
@@ -37,16 +37,22 @@ public class EscapeRoomController {
             tryButton.setDisable(true);
             //Method to prevent the tryButton from being pressed if the textField is empty.
             textField.textProperty().addListener((observable, oldValue, newValue) -> {
-                tryButton.setDisable(newValue.trim().isEmpty() || !isNumeric(newValue));
+                tryButton.setDisable(newValue.trim().isEmpty() || !isNumeric(newValue)||numAttemps<=0||guessed);
             });
 
 
     }
 
+    //Compruebo que el valor de textfield es un numero que se entre 1 y 100
     private boolean isNumeric(String newValue) {
         try {
-            Integer.parseInt(newValue);
-            return true;
+            int value= Integer.parseInt(newValue);
+
+            if (value>0&&value<=100) {
+                return true;
+            }else {
+                return false;
+            }
         } catch (NumberFormatException e) {
             return false;
         }
@@ -55,15 +61,13 @@ public class EscapeRoomController {
     public void onTryButtonClick(ActionEvent actionEvent) {
 
         numAttemps--;
-        numberOfAttempts.setText(String.valueOf(numAttemps));
+        numberOfAttempts.setText("Intentos restantes: "+ numAttemps);
 
-        if (numAttemps<=0){
-            tryButton.setDisable(true);
-
-        }
 
         int inputNumber = Integer.parseInt(textField.getText());
         textField.clear();
+        int difference= Math.abs(secretNumber - inputNumber);
+
         if (inputNumber>secretNumber){
             feedback.setText("El número secreto es menor");
         } else if (inputNumber<secretNumber) {
@@ -74,14 +78,21 @@ public class EscapeRoomController {
             guessed = true;
 
         }
+        if (guessed){
+            feedback.setTextFill(Color.PINK);
+        }else {
+            if (difference >= 20) {
+                feedback.setTextFill(Color.BLUE);
+            } else if (difference >= 10) {
+                feedback.setTextFill(Color.ORANGE);
+            } else {
+                feedback.setTextFill(Color.RED); 
+            }
+        }
 
 
-        textField.textProperty().addListener((observable, oldValue, newValue) -> {
 
-            if (tryButton.isDisabled()) return;
 
-            tryButton.setDisable(newValue.trim().isEmpty() || numAttemps <= 0 || guessed);
-        });
 
     }
 }
