@@ -10,21 +10,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextField?>
-<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.escaperoomfx.EscapeRoomController">
+
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.escaperoomfx.EscapeRoomController" style="-fx-font-size: 15px;">
     <ImageView fx:id="background"  fitWidth="800" fitHeight="500" />
-    <!-- <ImageView fx:id="logo" layoutX="100" layoutY="100" fitWidth="110" fitHeight="110" />-->
-<VBox alignment="CENTER" >
-    <Label text="Descripción" textFill="WHITE"/>
-    <HBox spacing="20"  alignment="CENTER">
-        <Label text="Número entre 1 y 100" textFill="WHITE"/>
-        <Label text="Tes un total de 6 intentos" textFill="WHITE"/>
-        <Label fx:id="numberOfAttempts" textFill="WHITE"/>
-    </HBox>
-    <HBox alignment="CENTER" spacing="20">
-        <Label text="Número:" textFill="WHITE"/>
-        <TextField fx:id="textField" promptText="Introduce un número entre 1 y 100"/>
-        <Button fx:id="tryButton" text="Probar" onAction="#onTryButtonClick" />
-    </HBox>
-    <Label fx:id="feedback" text="Feedback" textFill="WHITE"/>
-</VBox>
+
+    <VBox alignment="CENTER" spacing="70" >
+        <Label  text="¡Desafía tu suerte! Tienes 6 intentos para adivinar el número escondido en la caja fuerte. Si lo logras, ¡vives! Si no, las consecuencias serán fatales. ¿Estás listo para el desafío?" textFill="WHITE" prefWidth="600" wrapText="true"/>
+        <HBox spacing="100"  alignment="CENTER">
+            <Label text="Número entre 1 y 100" textFill="WHITE" />
+            <Label text="¡Solo 6 intentos para escapar!" textFill="WHITE" />
+            <Label text="Intentos restantes: 6" fx:id="numberOfAttempts" textFill="WHITE" />
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="20">
+            <Label text="Número:" textFill="WHITE"/>
+            <TextField fx:id="textField" promptText="Introduce un número entre 1 y 100" prefWidth="230" style="-fx-background-color: #000000;-fx-text-fill: #FFFFFF;-fx-border-color:#D3D3D3 ;"/>
+            <Button fx:id="tryButton" text="Probar" onAction="#onTryButtonClick" style="-fx-border-color: #D3D3D3; -fx-background-color: #000000;-fx-text-fill: #FFFFFF;-fx-border-radius: 5px;"  />
+        </HBox>
+
+        <Label  text="¡Suerte en tu misión! Que cada intento te acerque a la victoria." textFill="WHITE" style="-fx-font-size: 15px; -fx-font-family: 'Tahoma';-fx-font-weight: bold;" fx:id="feedback"/>
+    </VBox>
+
 </StackPane>
